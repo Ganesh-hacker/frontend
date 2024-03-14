@@ -13,6 +13,14 @@ import Product from "./pages/Product"
 import Addtocart from "./pages/Addtocart";
 import Loginpage from "./pages/Loginpage";
 import Registerationpage from "./pages/Registerationpage";
+import Mainhelpcenterpage from "./pages/Mainhelpcenterpage";
+import Helpcenterinfopage from "./pages/Helpcenterinfopage";
+import Helpcenterdescriptionpage from "./pages/Helpcenterdescriptionpage";
+import Productssearched from "./pages/Productssearched";
+import Wrongcre from "./pages/Wrongcre";
+import Registerationsuccess from "./pages/Registerationsuccess"
+import Existing from "./pages/Existing";
+import Addtopurch from "./pages/Addtopurch";
 export default function App() {
   return (
     <div>
@@ -31,6 +39,14 @@ export default function App() {
            <Route path="/cart" element={<Addtocart />} /> 
           <Route path="/login" element={<Loginpage />}/>
           <Route path="/register" element={<Registerationpage />}/>
+          <Route path="/helpcenter" element={<Mainhelpcenterpage />}/>
+          <Route path="/helpcenterinfo" element={<Helpcenterinfopage />}/>
+          <Route path="/helpcenterdescription" element={<Helpcenterdescriptionpage />}/>
+          <Route path="/searchproducts" element={<Productssearched />}/>
+          <Route path="/wrongcredentials" element={<Wrongcre />}/>
+          <Route path="/successful" element={<Registerationsuccess />}/>
+          <Route path="/urexist" element={<Existing />}/>
+          <Route path="/purchased" element={<Addtopurch />}/>
         </Routes>
       </BrowserRouter>
     </div>

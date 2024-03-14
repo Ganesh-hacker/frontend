@@ -16,7 +16,7 @@ export default function Men_Kurtas_catalog_page(){
                  />
                 
             )
-        }
+        } 
     )
     return(
         <div>

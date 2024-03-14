@@ -3,9 +3,6 @@
     import "../index.css"
     export default function Products(props){
         const navigate = useNavigate();
-        function handleClick(){
-            navigate(`/product?param1=${props.imageUrl}&param2=${props.price}&param3=${props.discountedPrice}&param4=${props.discountPersent}&brand=${props.brand}&details=${props.title}&category1=${props.topLavelCategory}&category2=${props.secondLavelCategory}&category3=${props.LavelCategory}`);
-        }
         return(
             <div className="boxed">
                 <div className="product-content">
@@ -29,9 +26,9 @@
                             <p className="product-price">{props.discountPersent}%off</p>
                         </div>
                         <div className="product-btns">
-                                <button type="button" className="btn-buy" onClick={handleClick}> buy now
+                             <Link to={`/product?id=${props.id}`}  > <button type="button" className="btn-buy" > buy now
                                     <span><i className = "fas fa-shopping-cart"></i></span>
-                                </button>
+                                </button></Link>
                             </div>
 
                         

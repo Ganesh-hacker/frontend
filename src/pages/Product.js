@@ -1,16 +1,17 @@
-    import React from "react";
-    import Header from "../components/Header";
-    import Productdetails from "../components/Productdetails";
-    import Footer from "../components/Footer";
-    import "../index.css";
+import React from "react";
+import Header from "../components/Header";
+import Productdetails from "../components/Productdetails";
+import Footer from "../components/Footer";
+import "../index.css";
 
-    export default function Product(){
-        
-        return(
-            <div>
+export default function Product() {
+    
+
+    return (
+        <div>
             <Header />
-            <Productdetails />
+            <Productdetails  />
             <Footer />
-        
-    </div>    )
-    }
+        </div>
+    );
+}

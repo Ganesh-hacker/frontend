@@ -1,18 +1,36 @@
 import React from "react";
 import "../index.css";
 import logoimg from "../images/logo.png"
-export default function Header(){
+export default function Header(props){
+    const [searchdetails,setsearch]=React.useState({search: ""})
+    function handlechange(event){
+        const {value,name}=event.target
+        setsearch(prevsearch=>{
+            return {...prevsearch,
+            [name]:value
+        }})
+    }
+    const username=localStorage.getItem('username')
+    function Loggingout() {
+        localStorage.removeItem('username');
+    }
     return(
         <div className="menu-bar">
       <a href="/"> <img className="logo" src={logoimg}  /></a> 
+      <form action="/searchproducts">
+                <div className="search">
+                    <span className="searchicon material-symbols-outlined">search</span>
+                <input className="searchinput" type="search" value={searchdetails.search} name="search" onChange={handlechange} placeholder="Search"></input>
+                </div></form>
         <ul>
+            
             <li><a href="/">Home</a></li>
             <li><a >Men <i class="fas fa-caret-down"></i></a>
                 <div class="dropdown-menu">
                     <ul>
-                        <li><a href="/men/shirts">Shirts</a></li>
-                        <li><a href="/men/pants">Pants</a></li>
-                        <li><a href="/men/kurtas">Kurtas</a></li>
+                        <li><a href="/searchproducts?search=men+shirt">Shirts</a></li>
+                        <li><a href="/searchproducts?search=men+jeans">Pants</a></li>
+                        <li><a href="/searchproducts?search=men%2Bkurta">Kurtas</a></li>
                     </ul>
                 </div>
             </li>
@@ -20,16 +38,31 @@ export default function Header(){
                 <div class="dropdown-menu">
                     <ul>
                         <li><a href="/women/kurta">Kurtis</a></li>
-                        <li><a href="/women/tops">Tops</a></li>
-                        <li><a href="/women/lengha">Lengha</a></li>
-                        <li><a href="/women/jeans">Jeans</a></li>
+                        <li><a href="/searchproducts?search=women+top">Tops</a></li>
+                        <li><a href="/searchproducts?search=LEHENGA+">Lengha</a></li>
+                        <li><a href="/searchproducts?search=women+jeans">Jeans</a></li>
                     </ul>
                 </div>
             </li>
-            
-            <li><a href="./profile"><i className="glyphicon glyphicon-user"></i></a>
-            </li>
-            <li><a href="#"><i className="fas fa-shopping-cart"></i></a></li>
+            {username ? (
+   <li>  <a href="./profile" style={{ color: 'white' }}>{username}<i class="fas fa-caret-down"></i></a>
+   <div class="dropdown-menu">
+                    <ul>
+                    <li><a href="./profile" >Profile</a></li>
+                    <li><a href="/" onClick={Loggingout}>Logout</a></li>
+                        
+                    </ul>
+                </div> </li>
+) : (
+    <li>
+        <a href="/login"
+        >Login/Signup
+        </a>
+    </li>
+)}
+{username  && <li><a href="/cart"><i className="fas fa-shopping-cart"></i></a></li>}
+    
+           
         </ul>
     </div>
     )
